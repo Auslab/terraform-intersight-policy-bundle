@@ -11,12 +11,13 @@ resource "intersight_storage_drive_group" "group1" {
     additional_properties = ""
     class_id              = "storage.ManualDriveGroup"
     object_type           = "storage.ManualDriveGroup"
-    dedicated_hot_spares = ""
-    span_groups = [
-      {
-        slots = "1,2"
-      }
-    ]
+    dedicated_hot_spares  = ""
+    span_groups = [{
+      additional_properties = ""
+      class_id              = "storage.SpanDrives"
+      object_type           = "storage.SpanDrives"
+      slots                 = "1,2"
+    }]
   }]
   virtual_drives = [{
     additional_properties = ""
