@@ -54,9 +54,11 @@ resource "intersight_storage_storage_policy" "storage1" {
   name               = "${var.policy_prefix}-storage"
   unused_disks_state = "UnconfiguredGood"
   drive_group = [{
-    moid        = intersight_storage_drive_group.group1.moid
-    class_id    = "mo.MoRef"
-    object_type = "storage.DiskGroupPolicy"
+    moid                  = intersight_storage_drive_group.group1.moid
+    additional_properties = ""
+    class_id              = "mo.MoRef"
+    object_type           = "storage.DiskGroupPolicy"
+    selector              = ""
   }]
   organization {
     moid = var.organization
