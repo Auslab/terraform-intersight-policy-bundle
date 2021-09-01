@@ -11,7 +11,7 @@ resource "intersight_storage_drive_group" "group1" {
     additional_properties = ""
     class_id              = "storage.ManualDriveGroup"
     object_type           = "storage.ManualDriveGroup"
-    dedicated_host_spares = ""
+    dedicated_hot_spares = ""
     span_groups = [
       {
         slots = "1,2"
