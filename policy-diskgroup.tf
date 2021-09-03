@@ -38,6 +38,9 @@ resource "intersight_storage_drive_group" "group1" {
       write_policy          = "Default"
     }]
   }]
+  storage_policy {
+    moid = intersight_storage_storage_policy.storage1.moid
+  }
   dynamic "tags" {
     for_each = var.tags
     content {
@@ -53,13 +56,7 @@ resource "intersight_storage_storage_policy" "storage1" {
   description        = var.description
   name               = "${var.policy_prefix}-storage"
   unused_disks_state = "UnconfiguredGood"
-  drive_group = [{
-    moid                  = intersight_storage_drive_group.group1.moid
-    additional_properties = ""
-    class_id              = "mo.MoRef"
-    object_type           = "storage.DiskGroupPolicy"
-    selector              = ""
-  }]
+  use_jbod_for_vd_creation = false
   organization {
     moid = var.organization
   }
